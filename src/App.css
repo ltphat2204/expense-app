@@ -1,0 +1,10 @@
+.App{
+    width: 500px;
+    margin: 24px auto;
+}
+.main_container{
+    background-color: black;
+    color: white;
+    border-radius: 16px;
+    padding: 18px 24px;
+}
