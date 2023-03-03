@@ -1,0 +1,38 @@
+.payment_item{
+    display: flex;
+    justify-content: space-between;
+    background-color: gray;
+    border-radius: 16px;
+    padding: 8px;
+    margin-top: 16px;
+    align-items: center;
+}
+.payment_left_wrap{
+    display: flex;
+    align-items: center;
+}
+.payment_date{
+    background-color: black;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 16px;
+    border: 1px solid white;
+    margin-right: 16px;
+    font-size: 10px;
+    text-align: center;
+}
+.payment_date > div:not(:last-child){
+    margin-bottom: 4px;
+}
+.payment_day{
+    font-size: 20px;
+}
+.payment_title{
+    font-size: 24px;
+}
+.payment_amount{
+    background-color: purple;
+    border: white 1px solid;
+    padding: 8px;
+    border-radius: 8px;
+}
