@@ -1,0 +1,38 @@
+.add_form{
+    width: 100%;
+}
+.input_wrap{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    font-size: 12px;
+}
+.input_wrap input{
+    background-color: white;
+    outline: none;
+    border: none;
+    padding: 6px 12px;
+    font-size: 12px;
+    width: 374px;
+    border-radius: 8px;
+}
+.form_action_wrap{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.add_form button{
+    background-color: purple;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    cursor: pointer;
+}
+.add_form button[type="cancel"]{
+    background-color: grey;
+    color: white;
+    margin-left: 16px;
+}
