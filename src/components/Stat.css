@@ -1,0 +1,36 @@
+.stat_container{
+    display: flex;
+    justify-content: space-around;
+    background-color: #E1CAE4;
+    width: 100%;
+    padding: 8px 12px;
+    margin-top: 16px;
+    border-radius: 16px;
+}
+.stat_month{
+    height: 128px;
+    width: fit-content;
+}
+.stat_progress{
+    height: 114px;
+    width: 12px;
+    background-color: #BAA5ED;
+    margin: 0 auto;
+    border-radius: 8px;
+    border: 1px solid black;
+    position: relative;
+}
+.stat_bar{
+    width: 100%;
+    background-color: #3D15A9;
+    position: absolute;
+    bottom: 0;
+    border-radius: 8px;
+    z-index: 10;
+}
+.stat_title{
+    font-size: 10px;
+    line-height: 10px;
+    margin-top: 4px;
+    color: black;
+}

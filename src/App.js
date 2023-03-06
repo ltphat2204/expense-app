@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Filter from './components/Filter';
 import Payment from './components/Payment';
 import Form from './components/Form';
+import Calculate from './optimization/CalculateExpense';
+import Stat from './components/Stat';
 import './App.css';
 
 function App() {
@@ -11,18 +13,13 @@ function App() {
 
   const [isAdding, setAddingStatus] = useState(false);
 
-  const [payment, setPayment] = useState([
-    {
-      date: {year: '2021', month: 'Jan', day: '23'},
-      title: "Some drinks",
-      amount: 100000
-    },
-    {
-      date: {year: '2022', month: 'Feb', day: '2'},
-      title: "Some books",
-      amount: 50000
-    }
-  ]);
+  const [payment, setPayment] = useState([]);
+
+  const [stat, setStat] = useState([]);
+
+  useEffect(()=>{
+    setStat(Calculate(payment, listMonth, currentYear));
+  }, [currentYear, payment,]);
 
   const handleAddPayment = (value) =>{
     const [y, m, d] = value.date.split('-');
@@ -48,6 +45,7 @@ function App() {
       </div>
       <div className="main_container">
         <Filter listOption={listYear} onChange={setCurrentYear} currentValue={currentYear} title="Filter by year"/>
+        <Stat data={stat} listMonth={listMonth}/>
         {
           payment.filter((value) => value.date.year === currentYear)
                 .map((value, index)=><Payment key={index} data={value}/>)

@@ -14,6 +14,7 @@ export default function Form({onAdding, onCanceling}){
         event.preventDefault();
         setData({"name": "", "amount": "", "date": ""});
         onAdding(data);
+        onCanceling();
     } 
     return (
         <form className="add_form" onSubmit={handleSubmit}>
