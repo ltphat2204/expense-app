@@ -48,7 +48,7 @@ function App() {
         <Stat data={stat} listMonth={listMonth}/>
         {
           payment.filter((value) => value.date.year === currentYear)
-                .map((value, index)=><Payment key={index} data={value}/>)
+                .map((value, index)=><Payment key={Math.floor(Math.random() * 10000)} data={value}/>)
         }
       </div>
     </div>
