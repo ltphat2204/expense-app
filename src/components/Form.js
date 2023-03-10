@@ -1,8 +1,10 @@
 import { useState } from "react";
+import Validation from "../optimization/Validation";
 import "./Form.css";
 
 export default function Form({onAdding, onCanceling, init, submitTitle}){
     const [data, setData] = useState(init);
+    const [error, setError] = useState("");
 
     const handleChange = (event) => {
         setData({
@@ -12,9 +14,16 @@ export default function Form({onAdding, onCanceling, init, submitTitle}){
     }
     const handleSubmit = (event) => {
         event.preventDefault();
-        setData(init);
-        onAdding(data);
-        onCanceling();
+        const errorMessage = Validation(data);
+
+        if (errorMessage){
+            setError(errorMessage);
+        }else{
+            setError("");
+            setData(init);
+            onAdding(data);
+            onCanceling();
+        }
     } 
     return (
         <form className="add_form" onSubmit={handleSubmit}>
@@ -30,6 +39,12 @@ export default function Form({onAdding, onCanceling, init, submitTitle}){
                 <label htmlFor="date">Date: </label>
                 <input type="date" id="date" name="date" value={data.date} onChange={handleChange}/>
             </div>
+            {
+                error && 
+                <div className="input_wrap">
+                    <div className="form_error">Error: {error}</div>
+                </div>
+            }
             <div className="form_action_wrap">
                 <button type="submit">{submitTitle}</button>
                 <button onClick={onCanceling} type="cancel">CANCEL</button>
