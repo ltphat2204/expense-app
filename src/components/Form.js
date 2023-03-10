@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "./Form.css";
 
-export default function Form({onAdding, onCanceling}){
-    const [data, setData] = useState({"name": "", "amount": "", "date": ""});
+export default function Form({onAdding, onCanceling, init, submitTitle}){
+    const [data, setData] = useState(init);
 
     const handleChange = (event) => {
         setData({
@@ -12,7 +12,7 @@ export default function Form({onAdding, onCanceling}){
     }
     const handleSubmit = (event) => {
         event.preventDefault();
-        setData({"name": "", "amount": "", "date": ""});
+        setData(init);
         onAdding(data);
         onCanceling();
     } 
@@ -31,7 +31,7 @@ export default function Form({onAdding, onCanceling}){
                 <input type="date" id="date" name="date" value={data.date} onChange={handleChange}/>
             </div>
             <div className="form_action_wrap">
-                <button type="submit">ADD</button>
+                <button type="submit">{submitTitle}</button>
                 <button onClick={onCanceling} type="cancel">CANCEL</button>
             </div>
         </form>

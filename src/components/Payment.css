@@ -1,11 +1,18 @@
+.payment_container{
+    display: flex;
+    width: 100%;
+    margin-top: 16px;
+    align-items: center;
+}
 .payment_item{
     display: flex;
     justify-content: space-between;
     background-color: gray;
     border-radius: 16px;
     padding: 8px;
-    margin-top: 16px;
     align-items: center;
+    width: calc(100% - 28px);
+    cursor: pointer;
 }
 .payment_left_wrap{
     display: flex;
@@ -35,4 +42,12 @@
     border: white 1px solid;
     padding: 8px;
     border-radius: 8px;
+}
+.payment_delete{
+    font-size: 20px;
+    margin-left: 8px;
+    cursor: pointer;
+}
+.payment_delete:hover{
+    color: red;
 }
